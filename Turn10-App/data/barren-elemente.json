@@ -1,0 +1,39 @@
+{
+  "device": "barren",
+  "label": "Barren",
+  "description": "Barren-Elemente",
+  "elements": [
+    {
+      "name": "Kipplauf",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+barren+kipplauf"
+    },
+    {
+      "name": "Schwung zum Stütz",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+barren+schwung+stuetz"
+    },
+    {
+      "name": "Stütz am Barren",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+barren+stuetz"
+    },
+    {
+      "name": "Rückschlag",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+barren+rueckschlag"
+    },
+    {
+      "name": "Streckschwung",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+barren+streckschwung"
+    },
+    {
+      "name": "Rückschwung",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+barren+rueckschwung"
+    },
+    {
+      "name": "Schwebesprung",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+barren+schwebesprung"
+    },
+    {
+      "name": "Kippschwung",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+barren+kippschwung"
+    }
+  ]
+}

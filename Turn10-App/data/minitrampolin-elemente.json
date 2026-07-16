@@ -1,0 +1,27 @@
+{
+  "device": "minitrampolin",
+  "label": "Minitrampolin",
+  "description": "Minitrampolin-Elemente",
+  "elements": [
+    {
+      "name": "Salto vorwärts",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+minitrampolin+salto"
+    },
+    {
+      "name": "Drehung mit 1/2",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+minitrampolin+drehung"
+    },
+    {
+      "name": "Bocksprung",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+minitrampolin+bocksprung"
+    },
+    {
+      "name": "Salto rückwärts",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+minitrampolin+salto+rueckwaerts"
+    },
+    {
+      "name": "Drehung mit 1/1",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+minitrampolin+drehung+1+1"
+    }
+  ]
+}

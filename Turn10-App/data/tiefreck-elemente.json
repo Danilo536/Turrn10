@@ -1,0 +1,109 @@
+{
+  "device": "tiefreck",
+  "label": "Tiefreck",
+  "description": "Tiefreck-Elemente",
+  "elements": [
+    {
+      "name": "Kreisschlag",
+      "summary": "Flüssiger Kreisschlag mit klarer Rundung und ruhiger Abschlussposition.",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+tiefreck+kreisschlag",
+      "technique": [
+        "Stabiler Ausgang",
+        "Schultern aktiv führen",
+        "Körperlinie lang und gerade"
+      ],
+      "focus": [
+        "Saubere Rundung",
+        "Keine ruckartigen Unterbrechungen",
+        "Bewegung bleibt fließend"
+      ],
+      "difficulty": "Mittel",
+      "punkte": 0.6
+    },
+    {
+      "name": "Rückschwung",
+      "summary": "Kontrollierter Rückschwung mit guter Schwungnutzung und ruhiger Endposition.",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+tiefreck+rueckschwung",
+      "technique": [
+        "Schwung aus dem Hang",
+        "Beine aktiv anziehen",
+        "Kopf in der Bewegungsachse"
+      ],
+      "focus": [
+        "Körper bleibt gespannt",
+        "Abschluss sauber und stabil",
+        "Keine unnötige Korrektur"
+      ],
+      "difficulty": "Schwer",
+      "punkte": 0.8
+    },
+    {
+      "name": "Stütz mit Übergang",
+      "summary": "Sauberer Stütz mit klarer Übergangsphase und kontrollierter Fortsetzung.",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+tiefreck+stuetz+uebergang",
+      "technique": [
+        "Starker Start in den Stütz",
+        "Schultern aktiv halten",
+        "Übergang bewusst vorbereiten"
+      ],
+      "focus": [
+        "Körper bleibt stabil",
+        "Fließender Wechsel",
+        "Kein Hängen in der Stellung"
+      ],
+      "difficulty": "Schwer",
+      "punkte": 0.9
+    },
+    {
+      "name": "Schwung zum Stütz",
+      "summary": "Sauberer Schwung in die Stützposition mit guter Körperführung.",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+tiefreck+schwung+stuetz",
+      "technique": [
+        "Starker Einstieg",
+        "Körper klar in die Position bringen",
+        "Schultern über den Händen"
+      ],
+      "focus": [
+        "Flüssiger Übergang",
+        "Keine übertriebene Pendelbewegung",
+        "Körper bleibt kontrolliert"
+      ],
+      "difficulty": "Mittel",
+      "punkte": 0.7
+    },
+    {
+      "name": "Kippschwung",
+      "summary": "Kippschwung mit klarer Rundung und kontrollierter Aufnahme.",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+tiefreck+kippschwung",
+      "technique": [
+        "Guter Ausgang aus dem Stand",
+        "Körper straff anspannen",
+        "Schultern gezielt führen"
+      ],
+      "focus": [
+        "Saubere Bewegungskurve",
+        "Kein abruptes Abbremsen",
+        "Abschluss ruhig und sicher"
+      ],
+      "difficulty": "Mittel",
+      "punkte": 0.7
+    },
+    {
+      "name": "Streckschwung",
+      "summary": "Streckschwung mit klarer Körperlinie und ruhigem Abschluss.",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+tiefreck+streckschwung",
+      "technique": [
+        "Gute Schwungphase",
+        "Körper lang und gerade",
+        "Abschluss bewusst halten"
+      ],
+      "focus": [
+        "Keine übermäßige Beugung",
+        "Körper bleibt gespannt",
+        "Endposition ruhig und klar"
+      ],
+      "difficulty": "Mittel",
+      "punkte": 0.6
+    }
+  ]
+}

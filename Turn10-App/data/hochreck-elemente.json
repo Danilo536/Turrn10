@@ -1,0 +1,31 @@
+{
+  "device": "hochreck",
+  "label": "Hochreck",
+  "description": "Hochreck-Elemente",
+  "elements": [
+    {
+      "name": "Kippschwung",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+hochreck+kippschwung"
+    },
+    {
+      "name": "Stütz und Überschlag",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+hochreck+stuetz+ueberschlag"
+    },
+    {
+      "name": "Schwung in den Stütz",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+hochreck+schwung+stuetz"
+    },
+    {
+      "name": "Rückschwung",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+hochreck+rueckschwung"
+    },
+    {
+      "name": "Kreisschlag",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+hochreck+kreisschlag"
+    },
+    {
+      "name": "Streckschwung",
+      "video": "https://www.youtube.com/results?search_query=Turn10+official+hochreck+streckschwung"
+    }
+  ]
+}

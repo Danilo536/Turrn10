@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turn10 Digital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="bilder/app-icon.png" alt="Turn10 Digital Logo">
+        </div>
+        
+        <div class="search-bar">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="search" placeholder="Search..." class="search-input">
+        </div>
+        
+        <div class="user-profile">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>User Profile</span>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="element.html">Elemente-Bibliothek</a></li>
+            <li><a href="#">Übungsbuilder</a></li>
+            <li><a href="#">Analyse-Hub</a></li>
+            <li><a href="#">Mein Bereich</a></li>
+        </ul>
+    </nav>
+
+    <main class="dashboard-content">
+        
+        <section class="welcome-section">
+            <h1>Willkommen, [Name]</h1>
+        </section>
+
+        <section class="event-card">
+            <h3>Nächstes Event</h3>
+            <p class="event-details"><strong>Training Wulfen</strong>, 17.03.26, 18:00</p>
+            
+            <form id="abstimmungsFormular">
+                <div class="radio-row">
+                    <label class="radio-label">
+                        <input type="radio" name="teilnahme" value="ja" id="radioJa"> 
+                        Ja <span class="hint">(Grund: Ergänzung)</span>
+                    </label>
+                    <input type="text" id="grundJa" class="reason-input" placeholder="Optionaler Grund..." disabled>
+                </div>
+
+                <div class="radio-row">
+                    <label class="radio-label">
+                        <input type="radio" name="teilnahme" value="nein" id="radioNein"> 
+                        Nein <span class="hint">(Grund: Pflicht)</span>
+                    </label>
+                    <input type="text" id="grundNein" class="reason-input" placeholder="Warum kannst du nicht?" disabled>
+                </div>
+                
+                <p class="trainer-note">Bei Trainer darf + Auswertung</p>
+                <button type="submit" class="save-btn">Speichern</button>
+                <p id="statusMessage" class="status-message" aria-live="polite"></p>
+            </form>
+        </section>
+
+    </main>
+
+    <script src="dashboard-script.js"></script>
+</body>
+</html>
