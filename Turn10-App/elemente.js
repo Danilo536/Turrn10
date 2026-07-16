@@ -20,7 +20,9 @@ function normalizeDeviceData(dataset, fallbackKey) {
                 name: el.name || `Element ${index + 1}`,
                 summary: el.summary || el.desc || 'Beschreibung folgt.',
                 video: el.video || `https://www.youtube.com/results?search_query=Turn10+${encodeURIComponent(fallbackKey)}+${encodeURIComponent(el.name)}`,
-                optimalausfuehrung: Array.isArray(el.optimalausfuehrung) ? el.optimalausfuehrung : [],
+                optimalausfuehrung: Array.isArray(el.optimalausfuehrung)
+                    ? el.optimalausfuehrung
+                    : [...(Array.isArray(el.technique) ? el.technique : []), ...(Array.isArray(el.focus) ? el.focus : [])],
                 nicht_anerkennung: Array.isArray(el.nicht_anerkennung) ? el.nicht_anerkennung : [],
                 difficulty: el.difficulty || 'Mittel',
                 punkte: el.punkte || 0.5
@@ -48,6 +50,8 @@ function normalizeDeviceData(dataset, fallbackKey) {
 
 // --- INITIALISIERUNG ---
 async function initLibrary() {
+    const container = document.getElementById('element-container');
+
     try {
         const deviceFiles = [
             'data/boden-elemente.json', 'data/balken-elemente.json', 'data/barren-elemente.json',
@@ -55,21 +59,38 @@ async function initLibrary() {
             'data/minitrampolin-elemente.json', 'data/reck-elemente.json', 'data/sprung-elemente.json'
         ];
 
-        const responses = await Promise.all(deviceFiles.map((file) => fetch(file)));
-        const datasets = await Promise.all(responses.map((response) => response.ok ? response.json() : { elements: [] }));
+        const results = await Promise.allSettled(deviceFiles.map(async (file) => {
+            const response = await fetch(file);
+            if (!response.ok) {
+                throw new Error(`${file} konnte nicht geladen werden (${response.status})`);
+            }
+            return response.json();
+        }));
 
         appData = {};
-        datasets.forEach((dataset, index) => {
-            if (!dataset.elements) return;
+        results.forEach((result, index) => {
+            if (result.status !== 'fulfilled' || !Array.isArray(result.value?.elements)) {
+                if (result.status === 'rejected') console.error(result.reason);
+                return;
+            }
+            const dataset = result.value;
             const key = dataset.device || deviceFiles[index].replace('data/', '').replace('-elemente.json', '');
             appData[key] = normalizeDeviceData(dataset, key);
         });
 
         deviceList = Object.keys(appData);
         createDeviceButtons();
-        if (deviceList.length > 0) loadElements(deviceList[0]);
+        const firstButton = document.querySelector('.device-btn');
+        if (deviceList.length > 0) {
+            loadElements(deviceList[0], firstButton);
+        } else if (container) {
+            container.innerHTML = '<p class="library-message error">Die Elemente konnten nicht geladen werden. Bitte lade die Seite erneut.</p>';
+        }
     } catch (error) {
         console.error('Fehler beim Laden der Bibliothek:', error);
+        if (container) {
+            container.innerHTML = '<p class="library-message error">Die Elemente konnten nicht geladen werden. Bitte lade die Seite erneut.</p>';
+        }
     }
 }
 
@@ -128,12 +149,22 @@ function showDetail(el, deviceLabel) {
     const videoContainer = document.getElementById('video-container');
     const videoLinkBtn = document.getElementById('video-link');
     
-    let embedUrl = el.video;
-    if (el.video.includes("youtu")) {
-        const id = el.video.split(/v=|youtu\.be\//)[1]?.split(/[?&]/)[0];
-        if (id) embedUrl = `https://www.youtube.com/embed/${id}`;
+    let embedUrl = '';
+    try {
+        const videoUrl = new URL(el.video);
+        if (videoUrl.hostname === 'youtu.be') {
+            embedUrl = `https://www.youtube.com/embed/${videoUrl.pathname.slice(1)}`;
+        } else if (videoUrl.hostname.endsWith('youtube.com')) {
+            const videoId = videoUrl.searchParams.get('v');
+            if (videoId) embedUrl = `https://www.youtube.com/embed/${videoId}`;
+        }
+    } catch (error) {
+        console.error('Ungültiger Video-Link:', error);
     }
-    videoContainer.innerHTML = `<iframe width="100%" height="100%" src="${embedUrl}" frameborder="0" allowfullscreen></iframe>`;
+
+    videoContainer.innerHTML = embedUrl
+        ? `<iframe width="100%" height="100%" src="${embedUrl}" title="Video-Anleitung: ${el.name}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`
+        : '<p class="video-placeholder">Für dieses Element ist nur die externe Videosuche verfügbar.</p>';
     videoLinkBtn.href = el.video;
 
     // 2. Listen dynamisch bauen mit Karten-Optik
@@ -161,8 +192,15 @@ function closeModal() {
 }
 
 // --- EVENTS ---
-document.getElementById('detail-modal').addEventListener('click', (e) => {
-    if (e.target.classList.contains('modal-overlay')) closeModal();
+const detailModal = document.getElementById('detail-modal');
+if (detailModal) {
+    detailModal.addEventListener('click', (event) => {
+        if (event.target.classList.contains('modal-overlay')) closeModal();
+    });
+}
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && detailModal?.style.display === 'flex') closeModal();
 });
 
 window.closeModal = closeModal;
