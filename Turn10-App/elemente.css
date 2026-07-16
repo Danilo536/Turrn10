@@ -143,6 +143,18 @@ body {
 
 /* Video */
 .video-wrapper { width: 100%; border-radius: 16px; overflow: hidden; margin-bottom: 16px; background: #000; aspect-ratio: 16/9; }
+.video-placeholder {
+    min-height: 100%;
+    margin: 0;
+    padding: 20px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: #e2e8f0;
+    font-size: 14px;
+}
+.library-message { grid-column: 1 / -1; padding: 24px; border-radius: 14px; text-align: center; }
+.library-message.error { color: #991b1b; background: #fef2f2; border: 1px solid #fecaca; }
 
 /* Listen in den Karten */
 .detail-card { background: #f8fafc; padding: 20px; border-radius: 16px; border: 1px solid #e2e8f0; margin-bottom: 20px; }
