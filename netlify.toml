@@ -1,0 +1,7 @@
+[build]
+  publish = "Turn10-App"
+
+[[redirects]]
+  from = "/"
+  to = "/dashboard.html"
+  status = 302
